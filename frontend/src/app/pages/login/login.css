@@ -2,15 +2,16 @@
   flex: 1 0 auto;
   min-height: 0;
   width: 100vw;
-  background: url('../../../assets/imglogin.png') no-repeat center -215px;
+  background: url('/imgs/fondo.png') no-repeat center -185px;
   background-size: 100% auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #FFF6E7;
 }
 
 .login-card-custom {
-  background: rgba(255, 255, 255, 0.69);
+  background: rgba(250, 246, 238, 0.79);
   border-radius: 16px;
   box-shadow: 0 6px 24px rgba(0,0,0,0.12);
   max-width: 380px;
@@ -65,9 +66,25 @@
     color: white;
 }
 
+/* Fondo elegante para el modal de registro */
+#registroModal .modal-content {
+  background: linear-gradient(135deg, #ffffff 20%, #C49A6C 100%);
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 4px 32px rgba(196, 154, 108, 0.15);
+}
+#registroModal .modal-header,
+#registroModal .modal-footer {
+  border: none;
+  background: transparent;
+}
+#registroModal .modal-title {
+  color: #115E59;
+}
+
 @media (max-width: 600px) {
   .login-bg {
-    background: url('../../../assets/imglogin2.png') no-repeat center top;
+    background: url('/imgs/fondo2.png') no-repeat center top;
     background-size: cover;
   }
 }

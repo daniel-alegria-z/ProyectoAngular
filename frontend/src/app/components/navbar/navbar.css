@@ -1,0 +1,69 @@
+.navbar {
+  background-color: #FAF6EE;
+  border-bottom: 5px solid #C49A6C;
+}
+
+.navbar-brand {
+  color: #115E59;
+  font-weight: 700;
+}
+
+.navbar-brand img {
+    height: 48px;
+    margin-right: -4px;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #0d3c2f;
+}
+
+.nav-link {
+  color: #115E59;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #148974;
+}
+
+.btn-logout {
+  background-color: #148974;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  transition: background 0.2s;
+  margin-left: 1.5rem; /* Más separación de los otros títulos */
+}
+
+.btn-logout:hover {
+  background-color: #c0392b;
+  color: #fff;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todos los hijos */
+    text-align: center;
+  }
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+  .navbar-nav .nav-link {
+    display: block;
+    text-align: center;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .navbar-nav .btn-logout {
+    display: block;
+    margin: 3% auto 0 auto !important; /* Centra el botón y agrega margen arriba */
+    float: none !important;
+  }
+}

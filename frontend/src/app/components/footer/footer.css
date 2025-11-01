@@ -1,0 +1,17 @@
+footer {
+  background-color: #115E59;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer i {
+  color: #C49A6C;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+footer i:hover {
+  color: white;
+}
