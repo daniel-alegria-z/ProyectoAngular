@@ -1,0 +1,74 @@
+
+/* ---------- Estilo general del cuerpo ---------- */
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: white;
+  color: #222;
+}
+
+/* ---------- Encabezado ---------- */
+.hero {
+  height: 40vh;
+  background: linear-gradient(135deg, rgba(17,94,89,0.8), rgba(196,154,108,0.8)), center/cover no-repeat;
+  color: white;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #FAF6EE;
+  margin-bottom: 20px;
+}
+
+/* ---------- Secciones generales ---------- */
+section {
+  padding: 60px 20px;
+  background-color: #FAF6EE;
+  margin-bottom: 50px;
+}
+
+h2 {
+  color: #115E59;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #C49A6C;
+}
+
+/* ---------- Servicios ---------- */
+.servicio {
+  background-color: white;
+  border: 2px solid #C49A6C;
+  border-radius: 15px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.servicio:hover {
+  background-color: #115E59;
+  transform: translateY(-5px);
+}
+
+.servicio i {
+  font-size: 40px;
+  color: #115E59;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.servicio:hover i {
+  color: white;
+}
