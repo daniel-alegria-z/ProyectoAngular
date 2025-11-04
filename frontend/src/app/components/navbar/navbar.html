@@ -11,6 +11,12 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="inicio">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="servicios">Servicios</a></li>
+                <!-- Botón de cerrar sesión solo si hay sesión activa -->
+                <li class="nav-item" *ngIf="isLoggedIn">
+                    <button class="btn btn-logout" (click)="logout()" type="button">
+                        Cerrar sesión
+                    </button>
+                </li>
             </ul>
             
         </div>

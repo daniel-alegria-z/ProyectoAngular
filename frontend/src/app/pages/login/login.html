@@ -2,7 +2,7 @@
     <div class="login-page d-flex flex-column justify-content-center align-items-center min-vh-100">
         <div class="login-card-custom p-4 shadow">
             <h2 class="fw-bold text-c text-center mb-4">Iniciar Sesión</h2>
-            <form (ngSubmit)="onSubmit()" style="width: 100%; max-width: 350px;">
+            <form (ngSubmit)="onLogin()" style="width: 100%; max-width: 350px;">
                 <div class="mb-3">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Nombre de Usuario" [(ngModel)]="username"
@@ -21,11 +21,20 @@
                         </span>
                     </div>
                 </div>
+                <div class="mb-3">
+                    <div *ngIf="loginSuccessMsg" class="text-center small" style="color: #1A9440;">
+                        {{ loginSuccessMsg }}
+                    </div>
+                    <div *ngIf="loginErrorMsg" role="alert" aria-live="assertive" class="text-center small"
+                        [style.color]="loginErrorColor">
+                        {{ loginErrorMsg }}
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-c w-100">Entrar</button>
                 <div class="text-center mt-3">
                     <span style="color: #000;">¿No tiene su cuenta? </span>
                     <button type="button" class="btn btn-link p-0" style="color: #148974; margin-top:-5px"
-                        data-bs-toggle="modal" data-bs-target="#registroModal">
+                        data-bs-toggle="modal" data-bs-target="#registroModal" (click)="abrirRegistroModal()">
                         Regístrese
                     </button>
                 </div>
@@ -41,29 +50,64 @@
                     <h5 class="modal-title text-c fw-bold" id="registroModalLabel">Registro</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control" placeholder="Nombre de Usuario" />
-                        <span class="input-group-text bg-white border-start-0">
-                            <i class="bi bi-person"></i>
-                        </span>
+                <form (ngSubmit)="onRegister()" style="width: 100%;">
+                    <div class="modal-body">
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" placeholder="Nombre de Usuario"
+                                [(ngModel)]="regUsername" name="regUsername" required />
+                            <span class="input-group-text bg-white border-start-0">
+                                <i class="bi bi-person"></i>
+                            </span>
+                        </div>
+
+                        <div class="input-group mb-2">
+                            <input type="email" class="form-control" placeholder="Correo electrónico"
+                                [(ngModel)]="regEmail" name="regEmail" required />
+                            <span class="input-group-text bg-white border-start-0">
+                                <i class="bi bi-envelope"></i>
+                            </span>
+                        </div>
+
+                        <div class="input-group mb-2">
+                            <input type="password" class="form-control" placeholder="Contraseña"
+                                [(ngModel)]="regPassword" name="regPassword" required />
+                            <span class="input-group-text bg-white border-start-0">
+                                <i class="bi bi-lock"></i>
+                            </span>
+                        </div>
+
+                        <!-- Contenedor del mensaje de error DEBAJO de los inputs.
+         Se mantiene siempre en el DOM y solo se oculta con d-none -->
+                        <div class="mt-2" style="min-height: 1rem;">
+                            <div role="alert" aria-live="assertive" class="text-center small"
+                                [style.color]="registroErrorColor" [class.d-none]="!registroErrorMsg">
+                                {{ registroErrorMsg }}
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-group mb-2">
-                        <input type="email" class="form-control" placeholder="Correo electrónico" />
-                        <span class="input-group-text bg-white border-start-0">
-                            <i class="bi bi-envelope"></i>
-                        </span>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-c">Registrarse</button>
                     </div>
-                    <div class="input-group mb-2">
-                        <input type="password" class="form-control" placeholder="Contraseña" />
-                        <span class="input-group-text bg-white border-start-0">
-                            <i class="bi bi-lock"></i>
-                        </span>
-                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de registro exitoso -->
+    <div class="modal fade" id="registroExitosoModal" tabindex="-1" aria-labelledby="registroExitosoLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-c fw-bold" id="registroModalLabel">¡Registro exitoso!</h5>
+                    <button type="button" class="btn-close" (click)="cerrarModales()" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-center fw-bold">
+                    <p>El usuario ha sido registrado correctamente.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-c">Registrarse</button>
+                    <button type="button" class="btn btn-danger" (click)="cerrarModales()">Cerrar</button>
                 </div>
             </div>
         </div>

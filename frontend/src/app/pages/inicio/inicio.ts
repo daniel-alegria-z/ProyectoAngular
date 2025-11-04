@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class Inicio {
   ngOnInit() {
-    window.scrollTo({ top: 0, behavior: 'auto' }); // Fuerza scroll al tope al cargar
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'auto' }); // Fuerza scroll al tope al cargar
+    }
   }
 }
