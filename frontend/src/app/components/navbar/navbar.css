@@ -6,11 +6,12 @@
 .navbar-brand {
   color: #115E59;
   font-weight: 700;
+  font-size: 24px;
 }
 
 .navbar-brand img {
-    height: 48px;
-    margin-right: -4px;
+  height: 60px;
+  margin-right: -4px;
 }
 
 .navbar-brand:hover,
@@ -21,6 +22,8 @@
 .nav-link {
   color: #115E59;
   transition: color 0.2s;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .nav-link:hover,
@@ -36,7 +39,7 @@
   border-radius: 0.25rem;
   font-weight: 500;
   transition: background 0.2s;
-  margin-left: 1.5rem; /* Más separación de los otros títulos */
+  margin-left: 1.5rem;
 }
 
 .btn-logout:hover {

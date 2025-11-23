@@ -49,14 +49,17 @@ body {
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .hero p {
   font-size: 1.2rem;
   color: #FAF6EE;
   margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
 }
 
 .boton-primario {
@@ -64,13 +67,16 @@ body {
   color: white;
   border-radius: 30px;
   padding: 10px 25px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .boton-primario:hover {
-  background-color: wheat;
-  color: black;
+    background-color: wheat;
+    color: black;
+    transform: scale(1.05); 
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
 /* ---------- Secciones ---------- */
@@ -80,9 +86,11 @@ section {
 }
 
 h2 {
-  color: #115E59;
-  font-weight: 700;
-  margin-bottom: 25px;
+    color: #115E59;
+    font-weight: 700;
+    font-size: 42px;
+    margin-bottom: 70px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* ---------- Nosotros ---------- */
@@ -109,35 +117,102 @@ h2 {
 }
 
 /* ---------- Equipo Médico ---------- */
+
+/* Animación de entrada */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Tarjeta general ---- */
 .tarjeta-equipo {
-  background-color: white;
-  border: 2px solid #C49A6C;
-  border-radius: 15px;
-  padding: 30px 20px;
-  margin-bottom: 30px;
-  transition: 0.3s ease;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(196, 154, 108, 0.55);
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
+  padding: 35px 25px;
+  margin-bottom: 35px;
+  text-align: center;
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+
+  /* Animación al aparecer */
+  animation: fadeUp 0.6s ease-out;
+  transition: 0.35s ease;
 }
 
 .tarjeta-equipo:hover {
-  transform: translateY(-5px);
-  background-color: #115E59;
+  transform: translateY(-10px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  background: linear-gradient(135deg, #115E59 0%, #0d4e4a 100%);
   color: white;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.tarjeta-equipo img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+/* ---- Foto del médico ---- */
+.foto-equipo {
+  width: 155px;
+  height: 155px;
   border-radius: 50%;
-  border: 4px solid #C49A6C;
-  margin-bottom: 15px;
+  margin: 0 auto 15px auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: 5px solid #fff;
+  outline: 3px solid #C49A6C;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transition: 0.35s ease;
+}
+
+.tarjeta-equipo:hover .foto-equipo {
+  transform: scale(1.05);
+  outline-color: white;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
+}
+
+/* ---- Nombre del médico ---- */
+.tarjeta-equipo .nombre {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+/* ---- Separador dorado decorativo ---- */
+.tarjeta-equipo .nombre::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #C49A6C;
+  border-radius: 5px;
+  margin: 8px auto 12px auto;
   transition: 0.3s;
 }
 
-.tarjeta-equipo:hover img {
-  border-color: white;
+.tarjeta-equipo:hover .nombre::after {
+  background: white;
 }
 
+/* ---- Especialidad ---- */
+.tarjeta-equipo .titulo {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #115E59;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  transition: 0.3s;
+}
+
+.tarjeta-equipo:hover .titulo {
+  color: #C49A6C;
+}
+
+/* ---- Ajustes de imágenes según especialidad ---- */
 .tarjeta-equipo.medico-general .foto-equipo {
   background-image: url('/imgs/medico.png');
 }
@@ -146,27 +221,4 @@ h2 {
 }
 .tarjeta-equipo.cardiologo .foto-equipo {
   background-image: url('/imgs/cardiologo.png');
-}
-
-.foto-equipo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid #C49A6C;
-  margin: 0 auto 15px auto;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.tarjeta-equipo .nombre {
-  margin-bottom: 5px;
-  font-size: 1.2rem;
-}
-
-.tarjeta-equipo .titulo {
-  margin-bottom: 0;
-  font-size: 1rem;
-  font-weight: 700;
 }

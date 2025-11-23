@@ -12,29 +12,138 @@
         <h2 class="text-center mb-4">Servicios</h2><br><br>
         <div class="row g-4">
             <div class="col-md-3 col-sm-6">
-                <div class="servicio">
+                <div class="servicio" data-bs-toggle="modal" data-bs-target="#modalConsultas">
                     <i class="fas fa-heart-pulse"></i>
                     <h3>Consultas Médicas</h3>
+                    <p>Atención personalizada por profesionales de la salud.</p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
-                <div class="servicio">
+                <div class="servicio" data-bs-toggle="modal" data-bs-target="#modalLaboratorio">
                     <i class="fas fa-flask"></i>
                     <h3>Laboratorio Clínico</h3>
+                    <p>Resultados confiables con tecnología avanzada.</p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
-                <div class="servicio">
+                <div class="servicio" data-bs-toggle="modal" data-bs-target="#modalFarmacia">
                     <i class="fas fa-capsules"></i>
                     <h3>Farmacia</h3>
+                    <p>Disponibilidad inmediata de medicamentos y productos de salud.</p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
-                <div class="servicio">
+                <div class="servicio" data-bs-toggle="modal" data-bs-target="#modalVacunacion">
                     <i class="fas fa-syringe"></i>
                     <h3>Vacunación</h3>
+                    <p>Prevención segura y atención profesional.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- MODALES -->
+<!-- Consultas -->
+<div class="modal fade" id="modalConsultas" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h5 class="modal-title">Consultas Médicas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>En el Centro Médico Alivium contamos con un equipo de profesionales altamente calificados para brindarte atención médica integral, personalizada y de confianza.</p>
+                <ul>
+                    <li>Consultas generales, pediátricas, ginecológicas y de medicina interna.</li>
+                    <li>Control y seguimiento de enfermedades crónicas.</li>
+                    <li>Diagnóstico temprano y chequeos preventivos.</li>
+                    <li>Orientación médica y evaluación de resultados clínicos.</li>
+                    <li>Certificados médicos laborales y escolares.</li>
+                </ul>
+                <p class="mt-3"><strong>Horarios:</strong> Lunes a sábado de 7:00 a.m. a 7:00 p.m.</p>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary">Sacar Cita</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Laboratorio -->
+<div class="modal fade" id="modalLaboratorio" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h5 class="modal-title">Laboratorio Clínico</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <p>Nuestro laboratorio cuenta con tecnología moderna y un equipo profesional que garantiza resultados rápidos, precisos y seguros para tu diagnóstico médico.</p>
+                <ul>
+                    <li>Exámenes de sangre, orina, heces y pruebas hormonales.</li>
+                    <li>Perfil lipídico, hepático, renal y glucémico.</li>
+                    <li>Pruebas inmunológicas, de embarazo y COVID-19.</li>
+                    <li>Toma de muestras domiciliarias (con cita previa).</li>
+                    <li>Entrega de resultados en línea o en físico.</li>
+                </ul>
+                <p class="mt-3"><strong>Horario de laboratorio:</strong> Lunes a viernes 6:00 a.m. – 5:00 p.m. | Sábados 6:00 a.m. – 1:00 p.m.</p>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary">Sacar Cita</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Farmacia -->
+<div class="modal fade" id="modalFarmacia" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h5 class="modal-title">Farmacia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>La farmacia del Centro Médico ofrece una amplia variedad de medicamentos, productos naturales y de cuidado personal, con asesoría profesional y atención cálida.</p>
+                <ul>
+                    <li>Medicamentos genéricos y de marca.</li>
+                    <li>Suplementos vitamínicos y productos naturales.</li>
+                    <li>Artículos para el cuidado de la piel y primeros auxilios.</li>
+                    <li>Orientación farmacéutica personalizada.</li>
+                    <li>Descuentos especiales para pacientes frecuentes.</li>
+                </ul>
+                <p class="mt-3"><strong>Horario de atención:</strong> Lunes a sábado de 8:00 a.m. a 8:00 p.m.</p>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary">Consultar Medicamento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vacunación -->
+<div class="modal fade" id="modalVacunacion" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h5 class="modal-title">Vacunación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Protege tu salud y la de tu familia con nuestro servicio de vacunación, que cumple con los más altos estándares de seguridad y calidad médica.</p>
+                <ul>
+                    <li>Vacunas para niños, adolescentes y adultos.</li>
+                    <li>Campañas de refuerzo y dosis anuales.</li>
+                    <li>Vacunación contra influenza, tétanos, hepatitis, VPH y más.</li>
+                    <li>Registro digital y certificado de vacunación.</li>
+                    <li>Aplicación por personal de enfermería calificado.</li>
+                </ul>
+                <p class="mt-3"><strong>Horario:</strong> Lunes a viernes de 8:00 a.m. a 5:00 p.m.</p>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary">Solicitar Vacuna</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
