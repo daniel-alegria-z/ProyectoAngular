@@ -60,44 +60,6 @@ export class Login {
     });
   }
 
-  
-  // devuelve estado de cada requisito (para la vista)
-  public requisitosContrasena(password: string) {
-    return [
-      { key: 'length', valid: password?.length >= 8, msg: 'mínimo 8 caracteres' },
-      { key: 'upper', valid: /[A-Z]/.test(password || ''), msg: 'al menos una letra mayúscula' },
-      { key: 'lower', valid: /[a-z]/.test(password || ''), msg: 'al menos una letra minúscula' },
-      { key: 'digit', valid: /[0-9]/.test(password || ''), msg: 'al menos un número' },
-      { key: 'special', valid: /[!@#\$%\^&\*\(\)\-\_\=\+\[\]\{\};:'",<\.>\/\?\\|`~\.#]/.test(password || ''), msg: 'al menos un carácter especial (ej: ., #, !, @)' },
-      { key: 'nospace', valid: !/\s/.test(password || ''), msg: 'sin espacios' },
-    ];
-  }
-
-  tieneRequisitosIncompletos(password: string): boolean {
-    return this.requisitosContrasena(password).some(r => !r.valid);
-  }
-
-  validarContrasena(password: string): string[] {
-    return this.requisitosContrasena(password).filter(r => !r.valid).map(r => r.msg);
-  }
-
-  formatodeContrasena(missing: string[]): string {
-    if (!missing.length) return '';
-    if (missing.length === 1) return `La contraseña debe contener ${missing[0]}.`;
-    const last = missing.pop();
-    return `La contraseña debe contener ${missing.join(', ')} y ${last}.`;
-  }
-
-  // alterna visibilidad del input de login
-  public toggleContrasenaVisible() {
-    this.passwordVisible = !this.passwordVisible;
-  }
-
-  // alterna visibilidad del input de registro
-  public toggleRegContrasenaVisible() {
-    this.regPasswordVisible = !this.regPasswordVisible;
-  }
-
 
   onRegister() {
     this.registroErrorMsg = '';
@@ -155,6 +117,44 @@ export class Login {
     });
   }
 
+  // devuelve estado de cada requisito (para la vista)
+  requisitosContrasena(password: string) {
+    return [
+      { key: 'length', valid: password?.length >= 8, msg: 'mínimo 8 caracteres' },
+      { key: 'upper', valid: /[A-Z]/.test(password || ''), msg: 'al menos una letra mayúscula' },
+      { key: 'lower', valid: /[a-z]/.test(password || ''), msg: 'al menos una letra minúscula' },
+      { key: 'digit', valid: /[0-9]/.test(password || ''), msg: 'al menos un número' },
+      { key: 'special', valid: /[!@#\$%\^&\*\(\)\-\_\=\+\[\]\{\};:'",<\.>\/\?\\|`~\.#]/.test(password || ''), msg: 'al menos un carácter especial (ej: ., #, !, @)' },
+      { key: 'nospace', valid: !/\s/.test(password || ''), msg: 'sin espacios' },
+    ];
+  }
+
+  tieneRequisitosIncompletos(password: string): boolean {
+    return this.requisitosContrasena(password).some(r => !r.valid);
+  }
+
+  validarContrasena(password: string): string[] {
+    return this.requisitosContrasena(password).filter(r => !r.valid).map(r => r.msg);
+  }
+
+  formatodeContrasena(missing: string[]): string {
+    if (!missing.length) return '';
+    if (missing.length === 1) return `La contraseña debe contener ${missing[0]}.`;
+    const last = missing.pop();
+    return `La contraseña debe contener ${missing.join(', ')} y ${last}.`;
+  }
+
+  // alterna visibilidad del input de login
+  toggleContrasenaVisible() {
+    this.passwordVisible = !this.passwordVisible;
+  }
+
+  // alterna visibilidad del input de registro
+  toggleRegContrasenaVisible() {
+    this.regPasswordVisible = !this.regPasswordVisible;
+  }
+
+  
   abrirRegistroModal() {
     this.registroErrorMsg = '';
     this.registroErrorColor = '';
