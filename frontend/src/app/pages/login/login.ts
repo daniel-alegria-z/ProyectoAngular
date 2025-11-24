@@ -100,15 +100,6 @@ export class Login {
       },
       error: (err) => {
         const serverMsg = err?.error?.msg || err?.message || '';
-
-        // Si el servidor indica usuario o correo duplicado, mostrar ese mensaje
-        if (/usuario.*registrad|user.*exists|username.*exists|correo.*registrad|email.*exists|already.*exists/i.test(serverMsg)) {
-          this.registroErrorMsg = serverMsg || 'Usuario o correo ya registrado.';
-          this.registroErrorColor = '#e74c3c';
-          this.cdr.detectChanges();
-          return;
-        }
-
         // Fallback: mostrar mensaje del servidor si no encaja en los anteriores
         this.registroErrorMsg = serverMsg || 'Error desconocido en el registro.';
         this.registroErrorColor = '#e74c3c';
@@ -154,7 +145,7 @@ export class Login {
     this.regPasswordVisible = !this.regPasswordVisible;
   }
 
-  
+
   abrirRegistroModal() {
     this.registroErrorMsg = '';
     this.registroErrorColor = '';
